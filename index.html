@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Geometry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 70%;
+            margin: auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        section {
+            width: 65%;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+        }
+        .go {
+            margin-top: 10px;
+        }
+        input {
+            margin: 5px;
+            border-radius: 15px;
+        }
+        button
+        {
+            border-radius: 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        a
+        {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="top">Basic Geometry</h1>
+        <p>In this section, we are going to find the Area of some two-dimensional shapes.</p>
+        <p>You can click on any shape below:</p>
+        <ul>
+            <li><a href="#circle">Circle</a></li>
+            <li><a href="#triangle">Triangle</a></li>
+            <li><a href="#square">Square</a></li>
+            <li><a href="#rectangle">Rectangle</a></li>
+        </ul>
+
+        <!-- Circle Section -->
+        <section id="circle">
+            <h2>Circle Area</h2>
+            <label>Enter the value of the circle's radius:</label>
+            <input type="text" id="radius"> <br>
+            <button onclick="calculateCircleArea()">Calculate</button>
+            <p>Result: <input type="text" id="circle-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+
+        <!-- Triangle Section -->
+        <section id="triangle">
+            <h2>Triangle Area</h2>
+            <label>Enter base:</label>
+            <input type="text" id="base"> <br>
+            <label>Enter height:</label>
+            <input type="text" id="height"> <br>
+            <button onclick="calculateTriangleArea()">Calculate</button>
+            <p>Result: <input type="text" id="triangle-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+
+        <!-- Square Section -->
+        <section id="square">
+            <h2>Square Area</h2>
+            <label>Enter side length:</label>
+            <input type="text" id="side"> <br>
+            <button onclick="calculateSquareArea()">Calculate</button>
+            <p>Result: <input type="text" id="square-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+
+        <!-- Rectangle Section -->
+        <section id="rectangle">
+            <h2>Rectangle Area</h2>
+            <label>Enter width:</label>
+            <input type="text" id="width"> <br>
+            <label>Enter height:</label>
+            <input type="text" id="rect-height"> <br>
+            <button onclick="calculateRectangleArea()">Calculate</button>
+            <p>Result: <input type="text" id="rectangle-area" readonly></p>
+            <div class="go"><a href="#top">Go to Top</a></div>
+        </section>
+    </div>
+
+    <script>
+        function calculateCircleArea() {
+            let radius = parseFloat(document.getElementById("radius").value);
+            if (!isNaN(radius) && radius > 0) {
+                document.getElementById("circle-area").value = (Math.PI * radius * radius).toFixed(2);
+            } else {
+                alert("Please enter a valid radius");
+            }
+        }
+
+        function calculateTriangleArea() {
+            let base = parseFloat(document.getElementById("base").value);
+            let height = parseFloat(document.getElementById("height").value);
+            if (!isNaN(base) && !isNaN(height) && base > 0 && height > 0) {
+                document.getElementById("triangle-area").value = (0.5 * base * height).toFixed(2);
+            } else {
+                alert("Please enter valid base and height");
+            }
+        }
+
+        function calculateSquareArea() {
+            let side = parseFloat(document.getElementById("side").value);
+            if (!isNaN(side) && side > 0) {
+                document.getElementById("square-area").value = (side * side).toFixed(2);
+            } else {
+                alert("Please enter a valid side length");
+            }
+        }
+
+        function calculateRectangleArea() {
+            let width = parseFloat(document.getElementById("width").value);
+            let height = parseFloat(document.getElementById("rect-height").value);
+            if (!isNaN(width) && !isNaN(height) && width > 0 && height > 0) {
+                document.getElementById("rectangle-area").value = (width * height).toFixed(2);
+            } else {
+                alert("Please enter valid width and height");
+            }
+        }
+    </script>
+</body>
+</html>
